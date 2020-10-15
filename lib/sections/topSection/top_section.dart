@@ -27,11 +27,11 @@ class TopSection extends StatelessWidget {
         child: Stack(
           children: [
             LogoAndBlurBox(size: size),
-            Positioned(
+            /*Positioned(
               bottom: 0,
               right: 0,
               child: PersonPic(),
-            ),
+            ),*/
             Positioned(
               bottom: 0,
               child: Menu(),
