@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/default_button.dart';
 import 'package:my_portfolio/components/section_title.dart';
 import 'package:my_portfolio/constants.dart';
-
 import 'components/socal_card.dart';
+
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
+import 'package:toast/toast.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatelessWidget {
   @override
@@ -28,6 +32,7 @@ class ContactSection extends StatelessWidget {
             color: Color(0xFF07E24A),
           ),
           ContactBox()
+          //SizedBox(height: kDefaultPadding * 2.5),
         ],
       ),
     );
@@ -42,7 +47,7 @@ class ContactBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 1110),
+      constraints: BoxConstraints(maxWidth: 1110, maxHeight: 300),
       margin: EdgeInsets.only(top: kDefaultPadding * 2),
       padding: EdgeInsets.all(kDefaultPadding * 3),
       decoration: BoxDecoration(
@@ -58,27 +63,46 @@ class ContactBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SocalCard(
-                color: Color(0xFFD9FFFC),
-                iconSrc: "assets/images/skype.png",
-                name: 'TheFlutterWay',
-                press: () {},
+                color: Color(0xFFFFFF),
+                iconSrc: "assets/images/gmail.png",
+                name: 'anasmansouribusiness@gmail.com',
+                press: () {
+                  Toast.show(
+                      "contact me on : anasmansouribusiness@gmail.com", context,
+                      duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                },
               ),
               SocalCard(
-                color: Color(0xFFE4FFC7),
-                iconSrc: "assets/images/whatsapp.png",
-                name: 'TheFlutterWay',
-                press: () {},
+                color: Color(0xFFFFFF),
+                iconSrc: "assets/images/linkedin.png",
+                name: 'Anas Mansouri ',
+                press: () async {
+                  const url =
+                      "https://www.linkedin.com/in/anas-mansouri-aa32a2136/";
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  } else {
+                    throw "Could not launch $url";
+                  }
+                },
               ),
               SocalCard(
-                color: Color(0xFFE8F0F9),
+                color: Color(0xFFFFFF),
                 iconSrc: "assets/images/messanger.png",
-                name: 'TheFlutterWay',
-                press: () {},
+                name: 'Anas Mansouri',
+                press: () async {
+                  const url = "https://www.facebook.com/savana.man.3/";
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  } else {
+                    throw "Could not launch $url";
+                  }
+                },
               ),
             ],
           ),
           SizedBox(height: kDefaultPadding * 2),
-          ContactForm(),
+          // ContactForm(),
         ],
       ),
     );
@@ -154,7 +178,42 @@ class ContactForm extends StatelessWidget {
               child: DefaultButton(
                 imageSrc: "assets/images/contact_icon.png",
                 text: "Contact Me!",
-                press: () {},
+                press: () async {
+                  Toast.show("Toast plugin app", context,
+                      duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+                  String username = 'htmlphpcss3@gmail.com';
+                  String password = 'cN9NkdmQME3ho6';
+
+                  final smtpServer = gmail(username, password);
+                  // Use the SmtpServer class to configure an SMTP server:
+                  // final smtpServer = SmtpServer('smtp.domain.com');
+                  // See the named arguments of SmtpServer for further configuration
+                  // options.
+
+                  // Create our message.
+                  final message = Message()
+                    ..from = Address(username, 'anas mansouri')
+                    ..recipients.add('anas.mansouri@usmba.ac.ma')
+                    //..ccRecipients
+                    //    .addAll(['destCc1@example.com', 'destCc2@example.com'])
+                    //..bccRecipients.add(Address('bccAddress@example.com'))
+                    ..subject =
+                        'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
+                    ..text =
+                        'This is the plain text.\nThis is line 2 of the text part.'
+                    ..html =
+                        "<h1>Test</h1>\n<p>Hey! Here's some HTML content</p>";
+
+                  try {
+                    final sendReport = await send(message, smtpServer);
+                    print('Message sent: ' + sendReport.toString());
+                  } on MailerException catch (e) {
+                    print('Message not sent.');
+                    for (var p in e.problems) {
+                      print('Problem: ${p.code}: ${p.msg}');
+                    }
+                  }
+                },
               ),
             ),
           )
