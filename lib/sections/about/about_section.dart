@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/default_button.dart';
 import 'package:my_portfolio/components/my_outline_button.dart';
 import 'package:my_portfolio/constants.dart';
+import 'package:toast/toast.dart';
 
 import 'components/about_section_text.dart';
 import 'components/about_text_with_sign.dart';
 import 'components/experience_card.dart';
 
 class AboutSection extends StatelessWidget {
+  ScrollController controller;
+  AboutSection({@required this.controller});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +45,17 @@ class AboutSection extends StatelessWidget {
               MyOutlineButton(
                 imageSrc: "assets/images/hand.png",
                 text: "Hire Me!",
-                press: () {},
+                press: () {
+                  this.controller.animateTo(
+                      this.controller.position.maxScrollExtent,
+                      duration: Duration(microseconds: 1500),
+                      curve: Curves.easeInOutExpo);
+                  Toast.show(
+                      "please contact me on my email or on my social media accounts",
+                      context,
+                      duration: Toast.LENGTH_LONG,
+                      gravity: Toast.BOTTOM);
+                },
               ),
               SizedBox(width: kDefaultPadding * 1.5),
               DefaultButton(

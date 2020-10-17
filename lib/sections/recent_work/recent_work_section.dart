@@ -23,10 +23,10 @@ class RecentWorkSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Transform.translate(
+          /*Transform.translate(
             offset: Offset(0, -80),
             child: HireMeCard(),
-          ),
+          ),*/
           SectionTitle(
             title: "Recent Woorks",
             subTitle: "My Strong Arenas",
