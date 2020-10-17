@@ -67,6 +67,7 @@ class _ServiceCardState extends State<ServiceCard> {
             Text(
               services[widget.index].title,
               style: TextStyle(fontSize: 22),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
