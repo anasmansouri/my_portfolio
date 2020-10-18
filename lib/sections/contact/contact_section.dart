@@ -10,9 +10,12 @@ import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactSection extends StatelessWidget {
+  var globalKey;
+  ContactSection({@required this.globalKey});
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: this.globalKey,
       // this height only for demo
       // height: 500,
       width: double.infinity,

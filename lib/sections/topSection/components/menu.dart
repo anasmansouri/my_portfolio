@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 
 class Menu extends StatefulWidget {
+  var keys;
+  Menu({this.keys});
   @override
   _MenuState createState() => _MenuState();
 }
@@ -12,7 +14,7 @@ class _MenuState extends State<Menu> {
   int hoverIndex = 0;
   List<String> menuItems = [
     "Home",
-    "Abour",
+    "About",
     "Services",
     "Portfolio",
     "Testimonial",
@@ -46,6 +48,7 @@ class _MenuState extends State<Menu> {
         onTap: () {
           setState(() {
             selectedIndex = index;
+            Scrollable.ensureVisible(widget.keys[index].currentContext);
           });
         },
         onHover: (value) {

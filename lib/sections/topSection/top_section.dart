@@ -8,10 +8,15 @@ import 'components/menu.dart';
 import 'components/person_pic.dart';
 
 class TopSection extends StatelessWidget {
+  var globalKey;
+
+  TopSection({this.keys, @required this.globalKey});
+  var keys;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
+      key: this.globalKey,
       alignment: Alignment.center,
       constraints: BoxConstraints(maxHeight: 900, minHeight: 700),
       width: double.infinity,
@@ -34,7 +39,9 @@ class TopSection extends StatelessWidget {
             ),*/
             Positioned(
               bottom: 0,
-              child: Menu(),
+              child: Menu(
+                keys: this.keys,
+              ),
             ),
           ],
         ),

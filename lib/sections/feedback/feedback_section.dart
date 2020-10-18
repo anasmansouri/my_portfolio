@@ -6,9 +6,12 @@ import 'package:my_portfolio/models/Feedback.dart';
 import 'components/feedback_card.dart';
 
 class FeedbackSection extends StatelessWidget {
+  var globalKey;
+  FeedbackSection({@required this.globalKey});
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: this.globalKey,
       padding: EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
       constraints: BoxConstraints(maxWidth: 1110),
       child: Column(

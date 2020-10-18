@@ -7,9 +7,12 @@ import 'package:my_portfolio/models/RecentWork.dart';
 import 'components/recent_work_card.dart';
 
 class RecentWorkSection extends StatelessWidget {
+  var globalKey;
+  RecentWorkSection({@required this.globalKey});
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: this.globalKey,
       margin: EdgeInsets.only(top: kDefaultPadding * 6),
       width: double.infinity,
       // just for demo

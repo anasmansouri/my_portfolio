@@ -6,9 +6,12 @@ import 'package:my_portfolio/models/Service.dart';
 import 'components/service_card.dart';
 
 class ServiceSection extends StatelessWidget {
+  var globaKey;
+  ServiceSection({@required this.globaKey});
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: this.globaKey,
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
       constraints: BoxConstraints(maxWidth: 1110),
       child: Column(

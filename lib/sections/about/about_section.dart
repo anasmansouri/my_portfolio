@@ -7,14 +7,18 @@ import 'package:toast/toast.dart';
 import 'components/about_section_text.dart';
 import 'components/about_text_with_sign.dart';
 import 'components/experience_card.dart';
+import 'dart:html' as html;
+import 'package:flutter/foundation.dart';
 
 class AboutSection extends StatelessWidget {
   ScrollController controller;
-  AboutSection({@required this.controller});
+  var globalKey;
+  AboutSection({@required this.controller, @required this.globalKey});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: this.globalKey,
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
       constraints: BoxConstraints(maxWidth: 1110),
       child: Column(
@@ -60,8 +64,10 @@ class AboutSection extends StatelessWidget {
               SizedBox(width: kDefaultPadding * 1.5),
               DefaultButton(
                 imageSrc: "assets/images/download.png",
-                text: "Download CV",
-                press: () {},
+                text: "My CV",
+                press: () async {
+                  html.window.open("./lib/cv/cv.pdf", 'cv.pdf');
+                },
               ),
             ],
           ),
