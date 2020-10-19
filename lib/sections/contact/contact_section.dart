@@ -91,10 +91,10 @@ class ContactBox extends StatelessWidget {
               ),
               SocalCard(
                 color: Color(0xFFFFFF),
-                iconSrc: "assets/images/messanger.png",
+                iconSrc: "assets/images/git.png",
                 name: 'Anas Mansouri',
                 press: () async {
-                  const url = "https://www.facebook.com/savana.man.3/";
+                  const url = "https://github.com/anasmansouri";
                   if (await canLaunch(url)) {
                     await launch(url);
                   } else {

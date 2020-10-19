@@ -20,7 +20,8 @@ class AboutTextWithSign extends StatelessWidget {
               .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
         ),
         SizedBox(height: kDefaultPadding * 2),
-        Image.asset("assets/images/sign.png")
+        //i remouved this sign
+        Image.asset("assets/images/sign1.png")
       ],
     );
   }
