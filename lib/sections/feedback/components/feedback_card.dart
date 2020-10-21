@@ -40,6 +40,7 @@ class _FeedbackCardState extends State<FeedbackCard> {
           boxShadow: [if (isHover) kDefaultCardShadow],
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Transform.translate(
               offset: Offset(0, -55),
@@ -47,18 +48,19 @@ class _FeedbackCardState extends State<FeedbackCard> {
                 duration: duration,
                 height: 100,
                 width: 100,
-                decoration: BoxDecoration(
+                /*decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.white, width: 10),
                   boxShadow: [if (!isHover) kDefaultCardShadow],
-                  image: DecorationImage(
+                  /*image: DecorationImage(
                     image: AssetImage(feedbacks[widget.index].userPic),
-                  ),
-                ),
+                  ),*/
+                ),*/
               ),
             ),
             Text(
               feedbacks[widget.index].review,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: kTextColor,
                 fontSize: 18,
@@ -69,7 +71,7 @@ class _FeedbackCardState extends State<FeedbackCard> {
             ),
             SizedBox(height: kDefaultPadding * 2),
             Text(
-              "Ronald Thompson",
+              feedbacks[widget.index].name,
               style: TextStyle(fontWeight: FontWeight.bold),
             )
           ],

@@ -12,26 +12,25 @@ class Feedback {
 List<Feedback> feedbacks = [
   Feedback(
     id: 1,
-    name: "Ronald Thompson",
-    review: review,
+    name: "Tony",
+    review: "Very professional programmer with a limitless creativity .",
     userPic: "assets/images/people.png",
     color: Color(0xFFFFF3DD),
   ),
   Feedback(
     id: 2,
-    name: "Ronald Thompson",
-    review: review,
+    name: "Abel-ilah",
+    review:
+        """One of the best things that i loved while working with mansouri is his power of solving complex problems and devide them to little ones .""",
     userPic: "assets/images/people.png",
     color: Color(0xFFD9FFFC),
   ),
   Feedback(
     id: 3,
-    name: "Ronald Thompson",
-    review: review,
+    name: "Youssef",
+    review:
+        "i love in mansouri his enthousiasme and passion towards programming .",
     userPic: "assets/images/people.png",
     color: Color(0xFFFFE0E0),
   ),
 ];
-
-String review =
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore mag aliqua enim ad minim veniam.';

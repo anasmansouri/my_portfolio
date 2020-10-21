@@ -3,6 +3,7 @@ import 'package:my_portfolio/components/hireme_card.dart';
 import 'package:my_portfolio/components/section_title.dart';
 import 'package:my_portfolio/constants.dart';
 import 'package:my_portfolio/models/RecentWork.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'components/recent_work_card.dart';
 
@@ -43,7 +44,16 @@ class RecentWorkSection extends StatelessWidget {
               runSpacing: kDefaultPadding * 2,
               children: List.generate(
                 recentWorks.length,
-                (index) => RecentWorkCard(index: index, press: () {}),
+                (index) => RecentWorkCard(
+                    index: index,
+                    press: () async {
+                      String url = recentWorks[index].link_to_the_project;
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw "Could not launch $url";
+                      }
+                    }),
               ),
             ),
           ),
