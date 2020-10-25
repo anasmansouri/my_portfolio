@@ -13,21 +13,25 @@ class FeedbackSection extends StatelessWidget {
     return Container(
       key: this.globalKey,
       padding: EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
-      constraints: BoxConstraints(maxWidth: 1110),
+      // constraints: BoxConstraints(maxWidth: 1110),
+      width: double.infinity,
       child: Column(
         children: [
           SectionTitle(
-            title: "Feedback Received",
+            title: "Testimonial",
             subTitle: "Client’s testimonials that inspired me a lot",
             color: Color(0xFF00B1FF),
           ),
           SizedBox(height: kDefaultPadding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            spacing: kDefaultPadding,
+            runSpacing: kDefaultPadding,
+            alignment: WrapAlignment.center,
             children: List.generate(
               feedbacks.length,
               (index) => FeedbackCard(index: index),
             ),
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ],
       ),

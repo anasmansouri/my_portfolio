@@ -21,11 +21,13 @@ class ServiceSection extends StatelessWidget {
             title: "Service Offerings",
             subTitle: "My Strong Arenas",
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            alignment: WrapAlignment.center,
+            spacing: kDefaultPadding,
+            runSpacing: kDefaultPadding,
             children: List.generate(
                 services.length, (index) => ServiceCard(index: index)),
-          ),
+          )
         ],
       ),
     );

@@ -17,28 +17,38 @@ class AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
+    final _width = MediaQuery.of(context).size.width;
     return Container(
       key: this.globalKey,
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-      constraints: BoxConstraints(maxWidth: 1110),
+      constraints: BoxConstraints(maxWidth: _height * 1.489),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AboutTextWithSign(),
-              Expanded(
+              Container(
+                padding: EdgeInsets.fromLTRB(0, _height / 24.83, 0, 0),
                 child: AboutSectionText(
                   text:
                       "I describe my self as someone who's persistant, a quick learner and loves problem solving by using simble and scalable solutions.",
                 ),
+                // scolor: Colors.blue,
+                alignment: Alignment.center,
+                constraints: BoxConstraints.tightForFinite(
+                    height: _height / 5, width: _height / 2.5),
               ),
               ExperienceCard(numOfExp: "02"),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  DefaultButton(
+                  MyOutlineButton(
                     imageSrc: "assets/images/download.png",
                     text: "My CV",
                     press: () async {

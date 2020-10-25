@@ -14,6 +14,7 @@ class AboutTextWithSign extends StatelessWidget {
       children: [
         Text(
           "About \nmy story",
+          overflow: TextOverflow.ellipsis,
           style: Theme.of(context)
               .textTheme
               .headline2

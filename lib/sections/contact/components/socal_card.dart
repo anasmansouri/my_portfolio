@@ -50,7 +50,10 @@ class _SocalCardState extends State<SocalCard> {
                 width: 80,
               ),
               SizedBox(width: kDefaultPadding),
-              Text(widget.name),
+              Text(
+                widget.name,
+                overflow: TextOverflow.ellipsis,
+              ),
             ],
           ),
         ),

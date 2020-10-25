@@ -40,6 +40,7 @@ class RecentWorkSection extends StatelessWidget {
           SizedBox(
             width: 1110,
             child: Wrap(
+              alignment: WrapAlignment.center,
               spacing: kDefaultPadding,
               runSpacing: kDefaultPadding * 2,
               children: List.generate(

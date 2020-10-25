@@ -49,8 +49,13 @@ class ContactBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
+    final _width = MediaQuery.of(context).size.width;
     return Container(
-      constraints: BoxConstraints(maxWidth: 1110, maxHeight: 300),
+      constraints:
+          BoxConstraints(maxWidth: _width * 1.042, maxHeight: _height / 2.37),
       margin: EdgeInsets.only(top: kDefaultPadding * 2),
       padding: EdgeInsets.all(kDefaultPadding * 3),
       decoration: BoxDecoration(
@@ -60,10 +65,11 @@ class ContactBox extends StatelessWidget {
           topRight: Radius.circular(20),
         ),
       ),
-      child: Column(
+      child: Wrap(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            alignment: WrapAlignment.center,
             children: [
               SocalCard(
                 color: Color(0xFFFFFF),
@@ -119,13 +125,17 @@ class ContactForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _height = MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top -
+        kToolbarHeight;
+    final _width = MediaQuery.of(context).size.width;
     return Form(
       child: Wrap(
         spacing: kDefaultPadding * 2.5,
         runSpacing: kDefaultPadding * 1.5,
         children: [
           SizedBox(
-            width: 470,
+            width: _width / 2.21,
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
@@ -135,7 +145,7 @@ class ContactForm extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 470,
+            width: _width / 2.21,
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
@@ -145,7 +155,7 @@ class ContactForm extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 470,
+            width: _width / 2.21,
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(
@@ -155,7 +165,7 @@ class ContactForm extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 470,
+            width: _width / 2.21,
             child: TextFormField(
               onChanged: (value) {},
               decoration: InputDecoration(

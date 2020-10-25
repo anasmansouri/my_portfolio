@@ -37,6 +37,7 @@ class TopSection extends StatelessWidget {
               right: 0,
               child: PersonPic(),
             ),*/
+
             Positioned(
               bottom: 0,
               child: Menu(

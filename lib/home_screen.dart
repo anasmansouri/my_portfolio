@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               globalKey: keys[0],
               keys: this.keys,
             ),
-            SizedBox(height: kDefaultPadding * 2),
+            // SizedBox(height: kDefaultPadding * 2),
             AboutSection(
               globalKey: keys[1],
               controller: this.controller,
