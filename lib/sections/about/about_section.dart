@@ -23,7 +23,7 @@ class AboutSection extends StatelessWidget {
     final _width = MediaQuery.of(context).size.width;
     return Container(
       key: this.globalKey,
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
+      padding: EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
       constraints: BoxConstraints(maxWidth: _height * 1.489),
       child: Column(
         children: [
@@ -43,7 +43,7 @@ class AboutSection extends StatelessWidget {
                 constraints: BoxConstraints.tightForFinite(
                     height: _height / 5, width: _height / 2.5),
               ),
-              ExperienceCard(numOfExp: "02"),
+              ExperienceCard(numOfExp: "01"),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

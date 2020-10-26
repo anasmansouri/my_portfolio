@@ -51,7 +51,7 @@ class ExperienceCard extends StatelessWidget {
             ),
             SizedBox(height: kDefaultPadding / 2),
             Text(
-              "Years of Experience as a freelancer",
+              " Year of Experience as a freelancer .",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color(0xFFA600FF),

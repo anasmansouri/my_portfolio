@@ -21,7 +21,7 @@ class SectionTitle extends StatelessWidget {
     final _width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: kDefaultPadding),
-      constraints: BoxConstraints(maxWidth: _width * 1.05566),
+      constraints: BoxConstraints(maxWidth: 1100),
       height: _height / 7.5,
       child: Row(
         children: [

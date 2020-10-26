@@ -13,7 +13,7 @@ class FeedbackSection extends StatelessWidget {
     return Container(
       key: this.globalKey,
       padding: EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
-      // constraints: BoxConstraints(maxWidth: 1110),
+      constraints: BoxConstraints(maxWidth: 1110),
       width: double.infinity,
       child: Column(
         children: [

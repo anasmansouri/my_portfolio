@@ -54,8 +54,7 @@ class ContactBox extends StatelessWidget {
         kToolbarHeight;
     final _width = MediaQuery.of(context).size.width;
     return Container(
-      constraints:
-          BoxConstraints(maxWidth: _width * 1.042, maxHeight: _height / 2.37),
+      constraints: BoxConstraints(maxWidth: 1110),
       margin: EdgeInsets.only(top: kDefaultPadding * 2),
       padding: EdgeInsets.all(kDefaultPadding * 3),
       decoration: BoxDecoration(
@@ -112,124 +111,6 @@ class ContactBox extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding * 2),
           // ContactForm(),
-        ],
-      ),
-    );
-  }
-}
-
-class ContactForm extends StatelessWidget {
-  const ContactForm({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final _height = MediaQuery.of(context).size.height -
-        MediaQuery.of(context).padding.top -
-        kToolbarHeight;
-    final _width = MediaQuery.of(context).size.width;
-    return Form(
-      child: Wrap(
-        spacing: kDefaultPadding * 2.5,
-        runSpacing: kDefaultPadding * 1.5,
-        children: [
-          SizedBox(
-            width: _width / 2.21,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: "Your Name",
-                hintText: "Enter Your Name",
-              ),
-            ),
-          ),
-          SizedBox(
-            width: _width / 2.21,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: "Email Address",
-                hintText: "Enter your email address",
-              ),
-            ),
-          ),
-          SizedBox(
-            width: _width / 2.21,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: "Project Type",
-                hintText: "Select Project Type",
-              ),
-            ),
-          ),
-          SizedBox(
-            width: _width / 2.21,
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: "Project Budget",
-                hintText: "Select Project Budget",
-              ),
-            ),
-          ),
-          SizedBox(
-            // height: 300,
-            // TextField by default cover the height, i tryed to fix this problem but i cant
-            child: TextFormField(
-              onChanged: (value) {},
-              decoration: InputDecoration(
-                labelText: "Description",
-                hintText: "Write some description",
-              ),
-            ),
-          ),
-          SizedBox(height: kDefaultPadding * 2),
-          Center(
-            child: FittedBox(
-              child: DefaultButton(
-                imageSrc: "assets/images/contact_icon.png",
-                text: "Contact Me!",
-                press: () async {
-                  Toast.show("Toast plugin app", context,
-                      duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
-                  String username = 'htmlphpcss3@gmail.com';
-                  String password = 'cN9NkdmQME3ho6';
-
-                  final smtpServer = gmail(username, password);
-                  // Use the SmtpServer class to configure an SMTP server:
-                  // final smtpServer = SmtpServer('smtp.domain.com');
-                  // See the named arguments of SmtpServer for further configuration
-                  // options.
-
-                  // Create our message.
-                  final message = Message()
-                    ..from = Address(username, 'anas mansouri')
-                    ..recipients.add('anas.mansouri@usmba.ac.ma')
-                    //..ccRecipients
-                    //    .addAll(['destCc1@example.com', 'destCc2@example.com'])
-                    //..bccRecipients.add(Address('bccAddress@example.com'))
-                    ..subject =
-                        'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
-                    ..text =
-                        'This is the plain text.\nThis is line 2 of the text part.'
-                    ..html =
-                        "<h1>Test</h1>\n<p>Hey! Here's some HTML content</p>";
-
-                  try {
-                    final sendReport = await send(message, smtpServer);
-                    print('Message sent: ' + sendReport.toString());
-                  } on MailerException catch (e) {
-                    print('Message not sent.');
-                    for (var p in e.problems) {
-                      print('Problem: ${p.code}: ${p.msg}');
-                    }
-                  }
-                },
-              ),
-            ),
-          )
         ],
       ),
     );

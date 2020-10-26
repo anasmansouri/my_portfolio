@@ -45,7 +45,7 @@ class GlassContent extends StatelessWidget {
                 ),
               ),
               Text(
-                "Computer science engineer",
+                "embedded systems engineer with a great passion for programming",
                 style: Theme.of(context)
                     .textTheme
                     .headline5
