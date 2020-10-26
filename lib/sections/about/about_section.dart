@@ -52,8 +52,8 @@ class AboutSection extends StatelessWidget {
                     imageSrc: "assets/images/download.png",
                     text: "My CV",
                     press: () async {
-                      html.window
-                          .open("assets/pdf/anas_mansouri.pdf", 'cv.pdf');
+                      html.window.open(
+                          "assets/pdf/anas_mansouri.pdf", 'anas_mansouri.pdf');
                     },
                   ),
                   SizedBox(height: kDefaultPadding * 2),
