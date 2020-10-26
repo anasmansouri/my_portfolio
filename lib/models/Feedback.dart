@@ -21,7 +21,7 @@ List<Feedback> feedbacks = [
     id: 2,
     name: "Abel-ilah",
     review:
-        """One of the best things that i loved while working with mansouri is his power of solving complex problems and devide them to little ones .""",
+        "Always thinks outside the box and automates processes by developing programs that improve efficiency .",
     userPic: "assets/images/people.png",
     color: Color(0xFFD9FFFC),
   ),
@@ -29,7 +29,7 @@ List<Feedback> feedbacks = [
     id: 3,
     name: "Youssef",
     review:
-        "i love in mansouri his enthousiasme and passion towards programming .",
+        "Demonstrates in-depth knowledge and exceptional ability to use cross-platform programming languages .",
     userPic: "assets/images/people.png",
     color: Color(0xFFFFE0E0),
   ),
