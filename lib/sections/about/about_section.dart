@@ -36,7 +36,7 @@ class AboutSection extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(0, _height / 24.83, 0, 0),
                 child: AboutSectionText(
                   text:
-                      "I describe my self as someone who's persistant, a quick learner and loves problem solving by using simble and scalable solutions.",
+                      "I describe my self as someone who's persistant, a quick learner and loves problem solving by using simple and scalable solutions.",
                 ),
                 // scolor: Colors.blue,
                 alignment: Alignment.center,

@@ -32,7 +32,7 @@ class RecentWorkSection extends StatelessWidget {
             child: HireMeCard(),
           ),*/
           SectionTitle(
-            title: "Recent Woorks",
+            title: "Recent projects",
             subTitle: "My Strong Arenas",
             color: Color(0xFFFFB100),
           ),
